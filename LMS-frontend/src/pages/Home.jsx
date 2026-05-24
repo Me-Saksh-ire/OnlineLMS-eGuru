@@ -247,12 +247,14 @@ const Home = () => {
                     <div className="course-card__footer">
                       <div className="course-card__price">
                         <span className="price--current">
-                          ₹{course.discountPrice || course.price}
+                          ₹
+                          {course.discountPrice?.toLocaleString("en-IN") ||
+                            course.price?.toLocaleString("en-IN")}
                         </span>
                         {course.discountPrice &&
                           course.discountPrice < course.price && (
                             <span className="price--original">
-                              ₹{course.price}
+                              ₹{course.price?.toLocaleString("en-IN")}
                             </span>
                           )}
                       </div>

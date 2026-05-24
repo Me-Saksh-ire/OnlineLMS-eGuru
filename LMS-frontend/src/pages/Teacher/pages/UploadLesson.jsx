@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../../../utils/axiosInstance";
+import { toast } from "react-hot-toast";
 
 const UploadLesson = () => {
   const navigate = useNavigate();
@@ -51,14 +52,14 @@ const UploadLesson = () => {
       });
 
       if (data.success) {
-        alert("Lesson uploaded successfully!");
+        toast.success("Lesson uploaded successfully!");
         navigate("/teacher");
       } else {
-        alert(data.message);
+        toast.error(data.message);
       }
     } catch (error) {
       console.log(error.message);
-      alert("Something went wrong");
+      toast.error("Something went wrong");
     }
     setLoading(false);
   };

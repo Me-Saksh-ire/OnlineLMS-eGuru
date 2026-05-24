@@ -540,10 +540,14 @@ const CourseDetail = ({ user, cartItems, setCartItems }) => {
 
             <div className="pricing-info">
               <div className="price-display">
-                <span className="current-price">₹{discountedPrice}</span>
+                <span className="current-price">
+                  ₹{discountedPrice.toLocaleString("en-IN")}
+                </span>
                 {discountPercent && (
                   <>
-                    <span className="original-price">₹{course.price}</span>
+                    <span className="original-price">
+                      ₹{course.price?.toLocaleString("en-IN")}
+                    </span>
                     <span className="discount-badge">
                       {discountPercent}% OFF
                     </span>

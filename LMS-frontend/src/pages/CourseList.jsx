@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import "./CourseList.css";
 import axiosInstance from "../utils/axiosInstance";
+import { toast } from "react-hot-toast";
+import { Funnel } from "lucide-react";
 
 const CATEGORIES = [
   "All",
@@ -36,7 +38,7 @@ const CourseList = () => {
         const { data } = await axiosInstance.get("/course/all?limit=100");
         if (data.success) setAllCourses(data.courses);
       } catch (err) {
-        console.error("Failed to fetch courses", err);
+        toast.error("Failed to fetch courses", err);
       } finally {
         setLoading(false);
       }
@@ -44,18 +46,15 @@ const CourseList = () => {
     fetchCourses();
   }, []);
 
-  // Filter + sort whenever deps change
   useEffect(() => {
     let results = [...allCourses];
 
-    // Category filter
     if (selectedCategory && selectedCategory !== "All") {
       results = results.filter(
         (c) => c.category?.toLowerCase() === selectedCategory.toLowerCase(),
       );
     }
 
-    // Search filter
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       results = results.filter(
@@ -65,7 +64,6 @@ const CourseList = () => {
       );
     }
 
-    // Sort
     if (sortBy === "popular") {
       results.sort((a, b) => (b.totalStudents || 0) - (a.totalStudents || 0));
     } else if (sortBy === "rating") {
@@ -116,7 +114,8 @@ const CourseList = () => {
           className="mobile-filter-btn"
           onClick={() => setShowFilters(true)}
         >
-          🔽 Filters
+          <Funnel className="filter-icon" />
+          Filters
         </button>
 
         {/* Overlay */}
@@ -274,12 +273,14 @@ const CourseList = () => {
                     <div className="course-footer">
                       <div className="price">
                         <span className="discount-price">
-                          ₹{course.discountPrice || course.price}
+                          ₹
+                          {course.discountPrice?.toLocaleString("en-IN") ||
+                            course.price?.toLocaleString("en-IN")}
                         </span>
                         {course.discountPrice &&
                           course.discountPrice < course.price && (
                             <span className="original-price">
-                              ₹{course.price}
+                              ₹{course.price?.toLocaleString("en-IN")}
                             </span>
                           )}
                       </div>

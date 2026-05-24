@@ -106,7 +106,7 @@ code {
 
 .btn-outline:hover {
   background: var(--primary);
-  color: var(--white);
+  color: var(--white) !important;
 }
 
 @keyframes fadeIn {

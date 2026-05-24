@@ -319,7 +319,9 @@ const TeacherDashboard = () => {
                       </span>
                       {course.price > 0 && (
                         <span className="td-price-tag">
-                          ₹{course.discountPrice || course.price}
+                          ₹
+                          {course.discountPrice?.toLocaleString("en-IN") ||
+                            course.price?.toLocaleString("en-IN")}
                         </span>
                       )}
                     </div>

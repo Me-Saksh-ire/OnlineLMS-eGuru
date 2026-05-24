@@ -289,7 +289,12 @@
 
 .course-skeleton {
   height: 360px;
-  background: linear-gradient(90deg, #111320 25%, #1a1d2e 50%, #111320 75%);
+  background: linear-gradient(
+    90deg,
+    #111320 25%,
+    #1a1d2e 50%,
+    #111320 75%
+  ) !important;
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   border-radius: 14px;
@@ -304,7 +309,7 @@
 }
 
 .course-card {
-  background: #111320;
+  background: #111320 !important;
   border: 1px solid #1e2130;
   border-radius: 14px;
   overflow: hidden;
@@ -375,6 +380,10 @@
   color: #f1f5f9;
   margin-bottom: 0.4rem;
   line-height: 1.45;
+}
+
+.course-card__body h3:hover {
+  color: #f5a623;
 }
 
 .course-card__desc {

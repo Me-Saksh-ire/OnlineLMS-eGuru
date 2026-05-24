@@ -145,6 +145,16 @@ const Navbar = ({ cartCount }) => {
                   >
                     My Courses
                   </Link>
+
+                  {/* ADD THIS */}
+                  <Link
+                    to="/purchase-history"
+                    className="dropdown-item"
+                    onClick={() => setShowDropdown(false)}
+                  >
+                    Purchase History
+                  </Link>
+
                   <hr className="dropdown-divider" />
                   <button
                     className="dropdown-item logout"

@@ -63,7 +63,13 @@ function AppRoutes() {
         />
         <Route
           path="/cart"
-          element={<Cart cartItems={cartItems} setCartItems={setCartItems} />}
+          element={
+            <Cart
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+              user={user}
+            />
+          }
         />
         <Route
           path="/purchase-history"
