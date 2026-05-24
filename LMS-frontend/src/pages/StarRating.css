@@ -1,0 +1,162 @@
+/* components/StarRating/StarRating.css */
+
+.sr-wrap {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-secondary, #f8fafc);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 12px;
+}
+
+/* ── Stars ── */
+.sr-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.sr-star {
+  font-size: 1.75rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #d1d5db;
+  line-height: 1;
+  transition:
+    color 0.15s,
+    transform 0.1s;
+}
+
+.sr-star:hover,
+.sr-star--filled {
+  color: #f59e0b;
+}
+
+.sr-star:hover {
+  transform: scale(1.15);
+}
+
+.sr-star--static {
+  cursor: default;
+  font-size: 1.4rem;
+}
+
+.sr-star--static:hover {
+  transform: none;
+}
+
+.sr-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-left: 6px;
+  font-weight: 500;
+}
+
+/* ── Prompt ── */
+.sr-prompt {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.6rem;
+}
+
+/* ── Review textarea ── */
+.sr-review {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  resize: vertical;
+  background: white;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.sr-review:focus {
+  outline: none;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+/* ── Actions ── */
+.sr-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.sr-submit-btn {
+  padding: 0.45rem 1.1rem;
+  background: #f59e0b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sr-submit-btn:hover:not(:disabled) {
+  background: #d97706;
+}
+
+.sr-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sr-cancel-btn {
+  padding: 0.45rem 0.9rem;
+  background: transparent;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sr-cancel-btn:hover {
+  background: #f3f4f6;
+}
+
+/* ── Submitted state ── */
+.sr-submitted {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.sr-submitted-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.sr-edit-btn {
+  font-size: 0.8rem;
+  color: #f59e0b;
+  background: none;
+  border: 1px solid #f59e0b;
+  border-radius: 6px;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sr-edit-btn:hover {
+  background: #fef3c7;
+}
+
+/* ── Avg rating line ── */
+.sr-avg {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-top: 0.5rem;
+}

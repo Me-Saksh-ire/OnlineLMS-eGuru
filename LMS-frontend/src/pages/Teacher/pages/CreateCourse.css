@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap");
+
+.create-page {
+  min-height: 100vh;
+  background: #0d0f1a;
+  font-family: "DM Sans", sans-serif;
+  padding: 2rem;
+}
+
+.create-header {
+  max-width: 860px;
+  margin: 0 auto 2rem;
+}
+
+.create-header h1 {
+  font-family: "Sora", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.create-header p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.create-form {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-card {
+  background: #111320;
+  border: 1px solid #1e2130;
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.form-card h3 {
+  font-family: "Sora", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f5a623;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #1e2130;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.field input,
+.field textarea,
+.field select {
+  background: #1a1d2e;
+  border: 1.5px solid #2a2d3e;
+  border-radius: 9px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  font-family: "DM Sans", sans-serif;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #4b5563;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: #f5a623;
+}
+
+.field select option {
+  background: #1a1d2e;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Array fields */
+.array-item {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+
+.array-item input {
+  flex: 1;
+  background: #1a1d2e;
+  border: 1.5px solid #2a2d3e;
+  border-radius: 9px;
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  color: #e5e7eb;
+  font-family: "DM Sans", sans-serif;
+}
+
+.array-item input:focus {
+  outline: none;
+  border-color: #f5a623;
+}
+
+.remove-btn {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  color: #f87171;
+  border-radius: 7px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.remove-btn:hover {
+  background: rgba(248, 113, 113, 0.2);
+}
+
+.add-btn {
+  background: rgba(245, 166, 35, 0.08);
+  border: 1px dashed rgba(245, 166, 35, 0.3);
+  color: #f5a623;
+  border-radius: 9px;
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-family: "DM Sans", sans-serif;
+}
+
+.add-btn:hover {
+  background: rgba(245, 166, 35, 0.15);
+}
+
+/* Thumbnail upload */
+.thumbnail-upload {
+  border: 2px dashed #2a2d3e;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumbnail-upload:hover {
+  border-color: #f5a623;
+}
+
+.thumbnail-upload input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail-preview {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.thumbnail-placeholder {
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.thumbnail-placeholder span {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Submit */
+.submit-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.btn-cancel {
+  background: #1a1d2e;
+  border: 1px solid #2a2d3e;
+  color: #9ca3af;
+  border-radius: 9px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  transition: background 0.2s;
+}
+
+.btn-cancel:hover {
+  background: #2a2d3e;
+}
+
+.btn-submit {
+  background: #f5a623;
+  border: none;
+  color: #0d0f1a;
+  border-radius: 9px;
+  padding: 0.75rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Sora", sans-serif;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background: #e09516;
+}
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .create-page {
+    padding: 1rem;
+  }
+}

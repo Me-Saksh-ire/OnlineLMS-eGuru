@@ -1,0 +1,375 @@
+.cert-page {
+  min-height: 100vh;
+  background: var(--gray-50);
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cert-top {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.cert-success-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+.cert-top h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+.cert-top p {
+  color: var(--gray-500);
+  font-size: 0.95rem;
+}
+
+.cert-wrapper {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  max-width: 720px;
+  border-radius: 16px;
+  padding: 4rem 3rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+}
+.cert-border-outer {
+  position: absolute;
+  inset: 12px;
+  border: 2px solid rgba(245, 166, 35, 0.25);
+  border-radius: 10px;
+  pointer-events: none;
+}
+.cert-border-inner {
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(245, 166, 35, 0.12);
+  border-radius: 8px;
+  pointer-events: none;
+}
+.cert-body {
+  position: relative;
+  text-align: center;
+}
+
+.cert-logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.cert-logo-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background: #f5a623;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-sub-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 0.4rem;
+}
+.cert-brand {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+.cert-certifies {
+  color: var(--gray-500);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.cert-name-wrap {
+  margin-bottom: 1rem;
+}
+.cert-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  font-family: Georgia, serif;
+  border-bottom: 2px solid rgba(245, 166, 35, 0.4);
+  display: inline-block;
+  padding-bottom: 0.4rem;
+}
+
+.cert-has {
+  color: var(--gray-500);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+.cert-course-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+.cert-authorized {
+  font-size: 0.82rem;
+  color: var(--gray-400);
+  margin-bottom: 2rem;
+}
+
+.cert-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+.cert-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: var(--gray-600);
+}
+.cert-meta-lbl {
+  color: var(--gray-400);
+}
+.cert-meta-val {
+  font-weight: 600;
+  color: var(--primary);
+}
+.cert-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--gray-200);
+}
+
+.cert-signatures {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  margin-bottom: 1.5rem;
+}
+.cert-sig {
+  text-align: center;
+}
+.cert-sig-line {
+  width: 120px;
+  border-bottom: 1px solid var(--gray-300);
+  margin-bottom: 6px;
+}
+.cert-sig p {
+  font-size: 0.78rem;
+  color: var(--gray-400);
+}
+
+.cert-id {
+  font-size: 0.72rem;
+  color: var(--gray-400);
+}
+
+.cert-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.cert-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.cert-btn--primary {
+  background: #f5a623;
+  color: #fff;
+  border: none;
+}
+.cert-btn--primary:hover {
+  background: #e09516;
+}
+.cert-btn--primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.cert-btn--outline {
+  background: #fff;
+  color: var(--primary);
+  border: 1.5px solid var(--gray-200);
+}
+.cert-btn--outline:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-300);
+}
+
+.cert-back {
+  text-align: center;
+}
+.cert-back a {
+  color: var(--gray-500);
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+.cert-back a:hover {
+  color: var(--primary);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   REPLACE your existing .cert-sig section in Certificate.css with these rules
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.cert-signatures {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-end; /* align bottoms so sig lines stay level */
+}
+
+.cert-sig {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Fixed-height box so both sigs sit at the same baseline */
+.cert-sig-img-wrap {
+  width: 140px;
+  height: 72px; /* tall enough for most handwriting */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+/* The actual signature image */
+.cert-sig-img {
+  max-width: 140px;
+  max-height: 72px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Blank line fallback */
+.cert-sig-line {
+  width: 140px;
+  border-bottom: 1px solid var(--gray-300);
+  margin-bottom: 6px;
+}
+
+/* Name under the signature */
+.cert-sig p {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Role label (smaller, muted) */
+.cert-sig-role {
+  font-size: 0.72rem !important;
+  font-weight: 400 !important;
+  color: var(--gray-400) !important;
+}
+
+@media (max-width: 600px) {
+  .cert-signatures {
+    gap: 2.5rem;
+  }
+  .cert-sig-img-wrap {
+    width: 110px;
+    height: 56px;
+  }
+  .cert-sig-img {
+    max-width: 110px;
+    max-height: 56px;
+  }
+}
+
+@media print {
+  .cert-sig-img {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+@media (max-width: 600px) {
+  .cert-wrapper {
+    padding: 2.5rem 1.5rem;
+  }
+  .cert-name {
+    font-size: 1.5rem;
+  }
+  .cert-brand {
+    font-size: 1.75rem;
+  }
+  .cert-meta {
+    gap: 1rem;
+  }
+  .cert-divider {
+    display: none;
+  }
+  .cert-signatures {
+    gap: 2rem;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .cert-wrapper,
+  .cert-wrapper * {
+    visibility: visible;
+  }
+
+  .cert-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 2rem 3rem;
+    box-shadow: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .cert-body {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+
+  @page {
+    margin: 0;
+    size: A4 landscape;
+  }
+}
