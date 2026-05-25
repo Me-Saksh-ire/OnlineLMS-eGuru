@@ -65,15 +65,16 @@ const CreateCourse = () => {
       Object.entries(form).forEach(([key, val]) => formData.append(key, val));
 
       // Arrays as JSON strings
-      formData.append("syllabus", JSON.stringify(syllabus.filter(Boolean)));
-      formData.append(
-        "requirements",
-        JSON.stringify(requirements.filter(Boolean)),
-      );
-      formData.append(
-        "whatYouWillLearn",
-        JSON.stringify(whatYouWillLearn.filter(Boolean)),
-      );
+      // ✅ Replace those 3 lines with this:
+      whatYouWillLearn
+        .filter(Boolean)
+        .forEach((item) => formData.append("whatYouWillLearn[]", item));
+      syllabus
+        .filter(Boolean)
+        .forEach((item) => formData.append("syllabus[]", item));
+      requirements
+        .filter(Boolean)
+        .forEach((item) => formData.append("requirements[]", item));
 
       // Thumbnail file
       if (thumbnail) formData.append("thumbnail", thumbnail);
