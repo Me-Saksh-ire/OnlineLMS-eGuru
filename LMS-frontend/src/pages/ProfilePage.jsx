@@ -234,6 +234,7 @@ const ProfilePage = () => {
                     <img
                       src={sigPreview}
                       alt="signature"
+                      size={90}
                       className="pp-sig-preview"
                     />
                   </div>
