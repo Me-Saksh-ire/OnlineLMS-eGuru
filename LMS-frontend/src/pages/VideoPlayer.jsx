@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import "./VideoPlayer.css";
 import axiosInstance from "../utils/axiosInstance";
+import StarRating from "./StarRating.jsx";
 import {
   CheckCircle,
   ChevronLeft,
