@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import "./CourseDetail.css";
 import axiosInstance from "../utils/axiosInstance";
-import StarRating from "./StarRating.jsx";
 import {
   Star,
   Clock,
@@ -54,8 +53,6 @@ const CourseDetail = ({ user, cartItems, setCartItems }) => {
   const [reviews, setReviews] = useState([]);
   const [reviewsLoading, setReviewsLoading] = useState(false);
   const [showAllReviews, setShowAllReviews] = useState(false);
-
-  if (!isEnrolled) return null;
 
   useEffect(() => {
     fetchCourse();
@@ -428,7 +425,6 @@ const CourseDetail = ({ user, cartItems, setCartItems }) => {
           </section>
 
           {/* ── Ratings & Reviews ─────────────────────────────────────────── */}
-          <StarRating courseId={id} isEnrolled={isEnrolled} />
 
           <section className="course-section fade-in">
             <h2>Ratings &amp; Reviews</h2>

@@ -157,6 +157,8 @@ const VideoPlayer = ({ user }) => {
         </div>
       )}
 
+      {courseCompleted && <StarRating courseId={courseId} isEnrolled={true} />}
+
       <div className="vp-layout">
         {/* ── Main video area ── */}
         <div className="vp-main">
