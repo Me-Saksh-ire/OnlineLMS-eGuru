@@ -1,7 +1,7 @@
 import express from "express";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import connectDB from "./configs/db.js";
 
 dotenv.config();
 
@@ -11,18 +11,30 @@ const { default: authRoutes } = await import("./routes/authRoutes.js");
 const { default: userRoutes } = await import("./routes/userRoutes.js");
 const { default: courseRoutes } = await import("./routes/courseRoutes.js");
 const { default: lessonRoutes } = await import("./routes/lessonRoutes.js");
-const { default: enrollmentRoutes } =
-  await import("./routes/enrollmentRoutes.js");
+const { default: enrollmentRoutes } = await import("./routes/enrollmentRoutes.js");
 const { default: ratingRoutes } = await import("./routes/ratingRoutes.js");
 const { default: progressRoutes } = await import("./routes/progressRoutes.js");
 const { default: paymentRoutes } = await import("./routes/paymentRoutes.js");
 const { errorHandler } = await import("./middlewares/auth.js");
 
+const allowedOrigins = [
+  process.env.FRONTEND_URL,       // e.g. https://eguru-learn.vercel.app
+  "http://localhost:3000"
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
-  }),
+    origin: function (origin, callback) {
+      // allow requests with no origin (Postman, curl, server-to-server)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`CORS blocked for origin: ${origin}`));
+      }
+    },
+    credentials: true
+  }
+  )
 );
 app.use(express.json());
 
@@ -40,12 +52,7 @@ app.use("/api/payment", paymentRoutes);
 app.use(errorHandler);
 
 // DB + Server
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB connected");
-    app.listen(process.env.PORT || 5000, () => {
-      console.log(`Server running on port ${process.env.PORT || 5000}`);
-    });
-  })
-  .catch((err) => console.log("DB connection error:", err.message));
+connectDB();
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`Server running on port ${process.env.PORT || 5000}`);
+});
