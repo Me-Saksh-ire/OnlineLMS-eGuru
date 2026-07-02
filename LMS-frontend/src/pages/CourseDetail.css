@@ -197,22 +197,21 @@
 }
 
 .item-content h4 {
-  font-size: 0.95rem;
-  margin-bottom: 0.2rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
   color: var(--primary);
   font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-break: break-word;
+  line-height: 1.4;
 }
 
 .item-content p {
   color: var(--gray-500);
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   margin-bottom: 0.4rem;
   line-height: 1.5;
   display: -webkit-box;
-  line-clamp: 1;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -221,29 +220,30 @@
   display: flex;
   gap: 0.75rem;
   align-items: center;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   color: var(--gray-400);
+  flex-wrap: wrap;
 }
 
 .duration {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.35rem;
   background: var(--gray-100);
-  padding: 0.15rem 0.5rem;
+  padding: 0.3rem 0.7rem;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--gray-600);
 }
 
 .watch-btn {
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1.2rem;
   background: var(--accent);
   color: var(--white);
   border: none;
   border-radius: 6px;
   font-weight: 600;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
@@ -464,6 +464,54 @@
 }
 
 @media (max-width: 768px) {
+  .course-section {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .course-section h2 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+  }
+
+  .learning-outcomes {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .outcome-item p {
+    font-size: 0.9rem;
+  }
+
+  /* Fix: content box must stretch to full width so text can wrap/truncate properly */
+  .syllabus-item {
+    padding: 0.9rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .item-content {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .item-content h4 {
+    white-space: normal; /* let title wrap instead of cutting off */
+    overflow: visible;
+    text-overflow: unset;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .item-content p {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    font-size: 0.9rem;
+  }
+
+  .watch-btn {
+    align-self: flex-start;
+  }
+
   .course-hero {
     padding: 2rem 1.25rem;
   }
@@ -473,7 +521,7 @@
   }
 
   .breadcrumb {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     flex-wrap: wrap;
   }
 
@@ -541,6 +589,26 @@
   .cd-review-header {
     flex-wrap: wrap;
   }
+
+  .cd-reviewer-info strong {
+    font-size: 1rem;
+  }
+
+  .cd-review-text {
+    font-size: 0.95rem;
+  }
+
+  .cd-bar-label {
+    font-size: 0.9rem;
+  }
+
+  .cd-bar-pct {
+    font-size: 0.9rem;
+  }
+
+  .cd-show-more-btn {
+    font-size: 1rem;
+  }
 }
 
 /* Rating summary */
@@ -568,7 +636,7 @@
 }
 
 .cd-rating-total {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   color: #94a3b8;
   margin-top: 2px;
 }
@@ -589,7 +657,7 @@
 }
 
 .cd-bar-label {
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   color: #6b7280;
   width: 28px;
   flex-shrink: 0;
@@ -611,9 +679,9 @@
 }
 
 .cd-bar-pct {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: #9ca3af;
-  width: 30px;
+  width: 35px;
   text-align: right;
   flex-shrink: 0;
 }
@@ -666,7 +734,7 @@
 }
 
 .cd-review-date {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: #94a3b8;
 }
 
@@ -683,8 +751,8 @@
   background: none;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  padding: 0.5rem 1.2rem;
-  font-size: 0.85rem;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.95rem;
   color: #4b5563;
   cursor: pointer;
   transition:
