@@ -282,7 +282,58 @@
   .nav-links {
     display: none;
   }
+
   .navbar-container {
-    padding: 0 1rem;
+    padding: 0.75rem 1rem;
+    height: auto;
+  }
+
+  .nav-logo-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+  }
+
+  .nav-logo-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .nav-logo-text {
+    font-size: 1.05rem;
+  }
+
+  .nav-right {
+    gap: 0.5rem;
+  }
+
+  .cart-btn {
+    padding: 0.3rem;
+  }
+
+  .cart-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav-login {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .nav-signup {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  .user-avatar,
+  .user-avatar-initials {
+    width: 34px;
+    height: 34px;
+  }
+
+  .dropdown-menu {
+    min-width: 200px;
+    right: -0.5rem;
   }
 }

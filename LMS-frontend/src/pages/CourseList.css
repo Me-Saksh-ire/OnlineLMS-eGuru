@@ -448,15 +448,16 @@
 @media (max-width: 768px) {
   /* Show filter button */
   .mobile-filter-btn {
+    width: 100%;
+    padding: 0.7rem 1.25rem;
+    border: 1.5px solid var(--gray-700);
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     background-color: #f5a623;
     color: var(--gray-700);
-    border: 2px solid var(--gray-700);
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-md);
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
@@ -510,6 +511,11 @@
     padding-right: 0 !important;
     padding-bottom: 1.5rem !important;
     margin-bottom: 1.5rem !important;
+  }
+
+  .filter-icon {
+    width: 16px;
+    height: 16px;
   }
 }
 
