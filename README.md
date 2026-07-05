@@ -15,29 +15,29 @@ Responsive, Modern UI — Custom dark-gold design system for a premium learning 
 
 🛠️ Tech Stack
 
-Frontend
+Frontend :
 
 React.js
 Tailwind CSS
 Fonts: Sora & DM Sans
 html2canvas (certificate generation)
 
-Backend
+Backend :
 
 Node.js
 Express.js
 MongoDB Atlas (Mongoose ODM)
 
-Authentication
+Authentication :
 
 JWT-based authentication
 Role-based middleware (student/instructor)
 
-Payments
+Payments :
 
 Razorpay Route (split payments for instructor payouts)
 
-Deployment
+Deployment :
 
 Frontend: Vercel
 Backend: Render
@@ -50,29 +50,6 @@ Database: MongoDB Atlas
 eGuru uses a custom dark-gold aesthetic for a premium, focused learning environment:
 
 ElementValueBackground#0d0f1aAccent#f5a623Primary FontSoraSecondary FontDM Sans
-
-
-📂 Project Structure
-
-eGuru/
-├── client/                     # React frontend (deployed on Vercel)
-│   ├── src/
-│   │   ├── components/         # Reusable UI components (VideoPlayer, CourseCard, etc.)
-│   │   ├── pages/               # Student & Instructor pages
-│   │   ├── context/             # Auth & role-based context providers
-│   │   ├── utils/                # Certificate generator, helpers
-│   │   └── App.jsx
-│   └── package.json
-│
-├── server/                     # Express backend (deployed on Render)
-│   ├── controllers/            # Course, user, payment, certificate logic
-│   ├── models/                 # Mongoose schemas (User, Course, Purchase, Review)
-│   ├── routes/                 # API endpoints
-│   ├── middleware/             # Auth & role verification
-│   ├── utils/                  # Razorpay Route helpers
-│   └── server.js
-│
-└── README.md
 
 
 ⚙️ Installation & Setup
