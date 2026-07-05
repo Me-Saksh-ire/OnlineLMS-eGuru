@@ -229,6 +229,12 @@ const Login = () => {
             </div>
           </div>
 
+          <p className="toggle-link">
+            <span onClick={() => navigate("/forgot-password")}>
+              Forgot password?
+            </span>
+          </p>
+
           <button type="submit" className="submit-btn" disabled={loading}>
             {loading
               ? "Please wait..."

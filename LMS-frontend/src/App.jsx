@@ -14,6 +14,7 @@ import VideoPlayer from "./pages/VideoPlayer";
 import Cart from "./pages/Cart";
 import PurchaseHistory from "./pages/PurchaseHistory";
 import Login from "./pages/Login";
+import ForgotPassword from "./pages/ForgotPassword";
 import MyCourses from "./pages/MyCourses";
 import "./App.css";
 import ManageLessons from "./pages/Teacher/pages/ManageLessons";
@@ -76,6 +77,7 @@ function AppRoutes() {
           element={<PurchaseHistory user={user} />}
         />
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
       <Footer />
     </div>

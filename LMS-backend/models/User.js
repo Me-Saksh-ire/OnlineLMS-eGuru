@@ -14,6 +14,8 @@ const userSchema = new mongoose.Schema(
     bankAccountLinked: { type: Boolean, default: false },
     rating: { type: Number, default: 0 },
     totalRatings: { type: Number, default: 0 },
+    resetOtp: { type: String },
+    resetOtpExpiry: { type: Date },
   },
   { timestamps: true },
 );

@@ -1,6 +1,9 @@
 import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import crypto from "crypto";
+import sendEmail from "../utils/sendEmail.js";
+
 
 const generateTokens = (userId) => {
   const accessToken = jwt.sign({ id: userId }, process.env.JWT_SECRET, {
@@ -134,6 +137,73 @@ export const logout = async (req, res) => {
     user.refreshToken = null;
     await user.save();
     return res.json({ success: true, message: "Logged out successfully" });
+  } catch (error) {
+    console.log(error.message);
+    return res.json({ success: false, message: error.message });
+  }
+};
+
+
+// POST /api/auth/forgot-password
+export const forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({ email });
+    if (!user)
+      return res.json({ success: false, message: "No account with that email" });
+
+    const otp = crypto.randomInt(100000, 999999).toString();
+    user.resetOtp = otp;
+    user.resetOtpExpiry = Date.now() + 10 * 60 * 1000; // 10 minutes
+    await user.save();
+
+    await sendEmail({
+      to: user.email,
+      subject: "Your EGuru Password Reset OTP",
+      html: `<p>Your OTP is <b>${otp}</b>. It expires in 10 minutes.</p>`,
+    });
+
+    return res.json({ success: true, message: "OTP sent to your email" });
+  } catch (error) {
+    console.log(error.message);
+    return res.json({ success: false, message: error.message });
+  }
+};
+
+// POST /api/auth/verify-otp
+export const verifyOtp = async (req, res) => {
+  try {
+    const { email, otp } = req.body;
+    const user = await User.findOne({ email });
+
+    if (!user || user.resetOtp !== otp || user.resetOtpExpiry < Date.now())
+      return res.json({ success: false, message: "Invalid or expired OTP" });
+
+    return res.json({ success: true, message: "OTP verified" });
+  } catch (error) {
+    console.log(error.message);
+    return res.json({ success: false, message: error.message });
+  }
+};
+
+// POST /api/auth/reset-password
+export const resetPassword = async (req, res) => {
+  try {
+    const { email, otp, newPassword } = req.body;
+
+    if (!newPassword || newPassword.length < 8)
+      return res.json({ success: false, message: "Password must be at least 8 characters" });
+
+    const user = await User.findOne({ email });
+    if (!user || user.resetOtp !== otp || user.resetOtpExpiry < Date.now())
+      return res.json({ success: false, message: "Invalid or expired OTP" });
+
+    user.password = await bcrypt.hash(newPassword, 10);
+    user.resetOtp = undefined;
+    user.resetOtpExpiry = undefined;
+    await user.save();
+
+    return res.json({ success: true, message: "Password reset successful" });
   } catch (error) {
     console.log(error.message);
     return res.json({ success: false, message: error.message });
